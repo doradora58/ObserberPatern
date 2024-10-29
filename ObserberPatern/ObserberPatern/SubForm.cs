@@ -15,23 +15,33 @@ namespace ObserberPatern
         public SubForm()
         {
             InitializeComponent();
+            this.Disposed += SubForm_Disposed;
             StartPosition = FormStartPosition.CenterScreen;
-            timer1.Interval = 5000;
-            timer1.Enabled = true;
+            WarningTimer.WarningAction += WarningTimer_WarningAction;
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        private void SubForm_Disposed(object sender, EventArgs e)
         {
-            if (WarningTimer.IsWarning)
-            {
-                label1.Text = "Warning";
-                label1.BackColor = Color.Red;
-            }
-            else
-            {
-                label1.Text = "Normal";
-                label1.BackColor = Color.Lime;
-            }
+            WarningTimer.WarningAction -= WarningTimer_WarningAction;
         }
+
+        private void WarningTimer_WarningAction(bool isWarning)
+        {
+            this.Invoke((Action)delegate ()
+            {
+                if (isWarning)
+                {
+                    label2.Text = "Warning";
+                    label2.BackColor = Color.Red;
+                }
+                else
+                {
+                    label2.Text = "Normal";
+                    label2.BackColor = Color.Lime;
+                }
+            });
+
+        }
+
     }
 }

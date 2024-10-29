@@ -9,13 +9,28 @@ namespace ObserberPatern
     public static class WarningTimer
     {
         private static System.Threading.Timer _timer;
+        public static event Action<bool> WarningAction;
 
 
         static WarningTimer() 
         {
             _timer = new System.Threading.Timer(TimerCallback);
         }
-        public static bool IsWarning { get; private set; }
+
+        private static bool _isWarning = false; 
+        public static bool IsWarning
+        {
+            get
+            { return _isWarning; }
+            private set
+            {
+                if (_isWarning != value)
+                {
+                    _isWarning = value;
+                    WarningAction?.Invoke(value);
+                }
+            }
+        }
         public static void Start()
         {
             _timer.Change(0, 5000);
