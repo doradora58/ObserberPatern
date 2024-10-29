@@ -1,0 +1,11 @@
+C:\work\01_source\ObserberPatern\ObserberPatern\ObserberPatern\bin\Debug\ObserberPatern.exe.config
+C:\work\01_source\ObserberPatern\ObserberPatern\ObserberPatern\bin\Debug\ObserberPatern.exe
+C:\work\01_source\ObserberPatern\ObserberPatern\ObserberPatern\bin\Debug\ObserberPatern.pdb
+C:\work\01_source\ObserberPatern\ObserberPatern\ObserberPatern\obj\Debug\ObserberPatern.csproj.AssemblyReference.cache
+C:\work\01_source\ObserberPatern\ObserberPatern\ObserberPatern\obj\Debug\ObserberPatern.Form1.resources
+C:\work\01_source\ObserberPatern\ObserberPatern\ObserberPatern\obj\Debug\ObserberPatern.Properties.Resources.resources
+C:\work\01_source\ObserberPatern\ObserberPatern\ObserberPatern\obj\Debug\ObserberPatern.csproj.GenerateResource.cache
+C:\work\01_source\ObserberPatern\ObserberPatern\ObserberPatern\obj\Debug\ObserberPatern.csproj.CoreCompileInputs.cache
+C:\work\01_source\ObserberPatern\ObserberPatern\ObserberPatern\obj\Debug\ObserberPatern.exe
+C:\work\01_source\ObserberPatern\ObserberPatern\ObserberPatern\obj\Debug\ObserberPatern.pdb
+C:\work\01_source\ObserberPatern\ObserberPatern\ObserberPatern\obj\Debug\ObserberPatern.SubForm.resources
