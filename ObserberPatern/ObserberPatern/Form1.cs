@@ -17,13 +17,13 @@ namespace ObserberPatern
             InitializeComponent();
             this.Disposed += Form1_Disposed;
             StartPosition = FormStartPosition.CenterScreen;
-
-            WarningTimer.WarningAction += WarningTimer_WarningAction;
+            
+            WarningTimer.Add(WarningTimer_WarningAction);
         }
 
         private void Form1_Disposed(object sender, EventArgs e)
         {
-            WarningTimer.WarningAction -= WarningTimer_WarningAction;
+            WarningTimer.Remove(WarningTimer_WarningAction);
         }
 
         private void WarningTimer_WarningAction(bool isWarning)
