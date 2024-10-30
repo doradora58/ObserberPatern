@@ -3,3 +3,5 @@ ObserberPatern/ObserberPatern/bin/*
 ObserberPatern/ObserberPatern/obj/Debug/ObserberPatern.csproj.CoreCompileInputs.cache
 ObserberPatern/ObserberPatern/obj/Debug/ObserberPatern.exe
 ObserberPatern/ObserberPatern/obj/Debug/ObserberPatern.pdb
+/ObserberPatern/ObserberPatern/bin
+/ObserberPatern/ObserberPatern/obj
