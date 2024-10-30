@@ -61,7 +61,7 @@
             this.autoUpdate.TabIndex = 2;
             this.autoUpdate.Text = "Auto update";
             this.autoUpdate.UseVisualStyleBackColor = true;
-            this.autoUpdate.CheckedChanged += new System.EventHandler(this.autoUpdate_CheckedChanged);
+            //this.autoUpdate.CheckedChanged += new System.EventHandler(this.autoUpdate_CheckedChanged);
             // 
             // Form1
             // 
