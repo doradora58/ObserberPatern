@@ -17,7 +17,7 @@ namespace ObserberPatern
             InitializeComponent();
             this.Disposed += Form1_Disposed;
             StartPosition = FormStartPosition.CenterScreen;
-            
+
             WarningTimer.Add(WarningTimer_WarningAction);
         }
 
@@ -48,6 +48,19 @@ namespace ObserberPatern
         {
             var f = new SubForm();
             f.Show();
+        }
+
+        private void autoUpdate_CheckedChanged(object sender, EventArgs e)
+        {
+            if (autoUpdate.Checked)
+            {
+                WarningTimer.Add(WarningTimer_WarningAction);
+            }
+            else
+            {
+                WarningTimer.Remove(WarningTimer_WarningAction);
+
+            }
         }
     }
 }

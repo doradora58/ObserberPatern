@@ -30,6 +30,7 @@
         {
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.autoUpdate = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // button1
@@ -51,11 +52,23 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "label1";
             // 
+            // autoUpdate
+            // 
+            this.autoUpdate.AutoSize = true;
+            this.autoUpdate.Location = new System.Drawing.Point(51, 45);
+            this.autoUpdate.Name = "autoUpdate";
+            this.autoUpdate.Size = new System.Drawing.Size(86, 16);
+            this.autoUpdate.TabIndex = 2;
+            this.autoUpdate.Text = "Auto update";
+            this.autoUpdate.UseVisualStyleBackColor = true;
+            this.autoUpdate.CheckedChanged += new System.EventHandler(this.autoUpdate_CheckedChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(423, 373);
+            this.Controls.Add(this.autoUpdate);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
             this.Name = "Form1";
@@ -69,6 +82,7 @@
 
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.CheckBox autoUpdate;
     }
 }
 

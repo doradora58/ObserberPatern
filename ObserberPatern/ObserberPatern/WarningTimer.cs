@@ -36,7 +36,7 @@ namespace ObserberPatern
             bool contains = false;
             if(_warningAction != null)
             {
-                contains = _warningAction.GetInvocationList().Contains(action)
+                contains = _warningAction.GetInvocationList().Contains(action);
             }
             if (!contains)
             {
