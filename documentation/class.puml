@@ -1,0 +1,21 @@
+@startuml
+
+class WarningTimer{
+    +add()
+    +remove()
+    +notify()
+}
+interface Observer{
+    +update()
+}
+class MainForm{
+    +update()
+}
+class SubForm{
+    +update()
+}
+Observer <|.. MainForm
+Observer <|.. SubForm
+WarningTimer o-- Observer
+
+@enduml
