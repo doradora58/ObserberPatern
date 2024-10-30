@@ -4,13 +4,14 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ObserberPatern
 {
-    public partial class SubForm : Form
+    public partial class SubForm : Form, INotify
     {
         public SubForm()
         {
@@ -21,10 +22,29 @@ namespace ObserberPatern
 
         private void SubForm_Disposed(object sender, EventArgs e)
         {
-            WarningTimer.Remove(WarningTimer_WarningAction);
+            WarningTimer.Remove(this);
         }
 
-        private void WarningTimer_WarningAction(bool isWarning)
+        //private void WarningTimer_WarningAction(bool isWarning)
+        //{
+
+
+        //}
+
+        private void autoUpdate_CheckedChanged(object sender, EventArgs e)
+        {
+            if (autoUpdate.Checked)
+            {
+                WarningTimer.Add(this);
+            }
+            else
+            {
+                WarningTimer.Remove(this);
+
+            }
+        }
+
+        public void Update(bool isWarning)
         {
             this.Invoke((Action)delegate ()
             {
@@ -39,20 +59,6 @@ namespace ObserberPatern
                     label2.BackColor = Color.Lime;
                 }
             });
-
-        }
-
-        private void autoUpdate_CheckedChanged(object sender, EventArgs e)
-        {
-            if (autoUpdate.Checked)
-            {
-                WarningTimer.Add(WarningTimer_WarningAction);
-            }
-            else
-            {
-                WarningTimer.Remove(WarningTimer_WarningAction);
-
-            }
         }
     }
 }
