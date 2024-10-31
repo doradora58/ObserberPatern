@@ -1,21 +1,33 @@
 @startuml
 
+abstract WarningTimerBase{
+    +Add()
+    +Remove()
+}
+
 class WarningTimer{
-    +add()
-    +remove()
-    +notify()
+    +Notify()
 }
+
+class WarningTimerMock{
+}
+
 interface Observer{
-    +update()
+    +Update()
 }
+
 class MainForm{
-    +update()
+    +Update()
 }
+
 class SubForm{
-    +update()
+    +Update()
 }
+
 Observer <|.. MainForm
 Observer <|.. SubForm
-WarningTimer o-- Observer
+WarningTimerBase o-- Observer
+WarningTimerBase <|-- WarningTimer
+WarningTimerBase <|-- WarningTimerMock
 
 @enduml

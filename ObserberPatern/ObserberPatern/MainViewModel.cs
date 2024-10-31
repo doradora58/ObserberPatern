@@ -11,15 +11,17 @@ namespace ObserberPatern
 {
     public class MainViewModel : INotifyPropertyChanged , INotify,IDisposable
     {
+        WarningTimerBase _warningTimerBase;
         Dispatcher _dispatcher;
-        public MainViewModel(Dispatcher dispatcher)
+        public MainViewModel(Dispatcher dispatcher, WarningTimerBase warningTimerBase)
         {
             _dispatcher = dispatcher;
-            WarningTimer.Add(this);
+            _warningTimerBase = warningTimerBase;
+            _warningTimerBase.Add(this);
         }
         public void Dispose()
         {
-            WarningTimer.Remove(this);
+            _warningTimerBase.Remove(this);
         }
 
         private string _warningLabelText = "aaa";
@@ -35,26 +37,34 @@ namespace ObserberPatern
                 if (_warningLabelText != value)
                 {
                     _warningLabelText = value;
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("WarningLabelText"));
+                    if (_dispatcher == null)
+                    {
+
+                        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("WarningLabelText"));
+                    }
+                    else
+                    {
+                        _dispatcher.Invoke((Action)delegate ()
+                        {
+                            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("WarningLabelText"));
+                        });
+                    }
                 }
             }
         }
 
         public void Update(bool isWarning)
         {
-            _dispatcher.Invoke((Action)delegate ()
+            if (isWarning)
             {
-                if (isWarning)
-                {
-                    WarningLabelText = "Warning";
-                    //WarningLabelTesxt.BackColor = Color.Red;
-                }
-                else
-                {
-                    WarningLabelText = "Normal";
-                    //WarningLabelTesxt.BackColor = Color.Lime;
-                }
-            });
+                WarningLabelText = "Warning";
+                //WarningLabelTesxt.BackColor = Color.Red;
+            }
+            else
+            {
+                WarningLabelText = "Normal";
+                //WarningLabelTesxt.BackColor = Color.Lime;
+            }
         }
 
 

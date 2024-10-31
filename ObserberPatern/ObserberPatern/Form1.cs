@@ -13,7 +13,7 @@ namespace ObserberPatern
 {
     public partial class Form1 : Form
     {
-        private MainViewModel _vm = new MainViewModel(Dispatcher.CurrentDispatcher);
+        private MainViewModel _vm = new MainViewModel(Dispatcher.CurrentDispatcher, Program.WarningTimer);
         public Form1()
         {
             InitializeComponent();

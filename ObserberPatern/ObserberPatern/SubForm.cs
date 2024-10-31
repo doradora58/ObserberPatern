@@ -22,7 +22,7 @@ namespace ObserberPatern
 
         private void SubForm_Disposed(object sender, EventArgs e)
         {
-            WarningTimer.Remove(this);
+            Program.WarningTimer.Remove(this);
         }
 
         //private void WarningTimer_WarningAction(bool isWarning)
@@ -35,11 +35,11 @@ namespace ObserberPatern
         {
             if (autoUpdate.Checked)
             {
-                WarningTimer.Add(this);
+                Program.WarningTimer.Add(this);
             }
             else
             {
-                WarningTimer.Remove(this);
+                Program.WarningTimer.Remove(this);
 
             }
         }
